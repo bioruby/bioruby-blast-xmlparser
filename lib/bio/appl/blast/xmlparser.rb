@@ -28,6 +28,11 @@ module Bio
 class Blast
   class Report
 
+    # Specify to use XMLParser to parse XML (-m 7) output.
+    def self.xmlparser(data)
+      self.new(data, :xmlparser)
+    end
+
     private
 
     def xmlparser_parse(xml)
