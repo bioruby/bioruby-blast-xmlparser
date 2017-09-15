@@ -115,32 +115,6 @@ class Blast
       end
     end
 
-    # set parameter of the key as val
-    def xml_set_parameter(key, val)
-      #labels = { 
-      #  'matrix'       => 'Parameters_matrix',
-      #  'expect'       => 'Parameters_expect',
-      #  'include'      => 'Parameters_include',
-      #  'sc-match'     => 'Parameters_sc-match',
-      #  'sc-mismatch'  => 'Parameters_sc-mismatch',
-      #  'gap-open'     => 'Parameters_gap-open',
-      #  'gap-extend'   => 'Parameters_gap-extend',
-      #  'filter'       => 'Parameters_filter',
-      #  'pattern'      => 'Parameters_pattern',
-      #  'entrez-query' => 'Parameters_entrez-query',
-      #}
-      k = key.sub(/\AParameters\_/, '')
-      @parameters[k] =
-        case k
-        when 'expect', 'include'
-          val.to_f
-        when /\Agap\-/, /\Asc\-/
-          val.to_i
-        else
-          val
-        end
-    end
-
     def xmlparser_parse_parameters(hash)
       hash.each do |k, v|
         xml_set_parameter(k, v)
