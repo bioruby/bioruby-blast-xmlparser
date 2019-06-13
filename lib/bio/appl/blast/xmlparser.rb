@@ -19,10 +19,7 @@
 # (format 7) based on the XMLParser and the REXML.
 #
 
-begin
-  require 'xmlparser'
-rescue LoadError
-end
+require 'xmlparser'
 
 module Bio
 class Blast
